@@ -744,7 +744,6 @@ int main(int argc, char **argv) {
   stbir_resize_uint8(img.data.data(), img.nx, img.ny, 0, img_scaled.data.data(), img_scaled.nx, img_scaled.ny, 0, 3);
   image<float> input_image = preprocess_image(img_scaled);
   auto input               = ggml_get_tensor(model.ctx, "input");
-  float *data              = (float *)ggml_get_data(input);
 
   ggml_backend_tensor_set(input, input_image.data.data(), 0, ggml_nbytes(input));
 
